@@ -1,0 +1,37 @@
+//--------------------------------------------
+//
+//  parts
+//
+//---------------------------------------------
+.parts
+  //---------------------------------------------
+  //  インナーフレーム
+  //---------------------------------------------
+  &-inner
+    width 100%
+    max-width 750px
+    padding 0 1em
+    margin auto
+  //---------------------------------------------
+  //  タイトル
+  //---------------------------------------------
+  // ページタイトル
+  &-pageTtl
+    font-size 2.4rem
+    font-weight 700
+    text-align left
+    position relative
+    display inline-block
+    vertical-align top
+    margin-bottom 1em
+    padding 0 .4em .1em
+    border 2px solid color_text
+    border-radius .8em
+    &::before
+      content ""
+      position absolute
+      top -2px
+      right -2px
+      width 2px
+      height calc(100% + 4px)
+      background-color color_text
