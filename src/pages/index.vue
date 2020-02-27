@@ -1,6 +1,16 @@
 <template lang="pug">
-  div.parts-inner
-    |aaa
-    p
-      nuxt-link(to="table") 対応表
+  div
+    // 変換器
+    Conversion
+
 </template>
+
+<script>
+import Conversion from '~/components/Conversion'
+
+export default {
+  components: {
+    Conversion
+  }
+}
+</script>

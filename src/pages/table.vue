@@ -1,7 +1,7 @@
 <doc>表</doc>
 
 <template lang="pug">
-  div.parts-inner
+  div
     h1.parts-pageTtl 対応表
     table
       tbody
@@ -19,11 +19,14 @@
 table
   margin auto
 tr + tr
-  border-top 1px solid color_another
+  border-top 1px dashed color_main
 tr
-  transition background-color .2s
+  transition all .2s
   &:hover
-    background-color color_another
+    color color_base
+    background-color color_main
+    td::before
+      background-color color_base!important
 td
   text-align center
   vertical-align middle
@@ -42,6 +45,7 @@ td
       width 8px
       height 1px
       background-color color_text
+      transition all .2s
 
   &:nth-of-type(2)
     font-size 2.4rem
