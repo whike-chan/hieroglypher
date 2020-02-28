@@ -4,13 +4,9 @@
   div
     h1.parts-pageTtl 変換器
 
-    // 変換したい文章を入力してください。 enter text to convert
-    //- p.tx1 𓇋𓈖𓏏𓇋𓂋 𓏏𓇋𓎡𓋴𓏏 𓏏𓍯 𓎡𓍯𓈖𓆑𓇋𓂋𓏏
-
-    // アムンのご加護を May amun be with you
-    //- p.tx2 𓅓𓄿𓇋 𓄿𓅓𓅱𓈖 𓃀𓇋 𓅱𓇋𓏏𓎛 𓇋𓍯𓅱
-
-    p 変換したい文字を入力してみてください
+    .parts-txBtn2col
+      p 変換したい文字を入力してみてください
+      button.parts-txBtn2col-btn(type="button" @click="inputText = ''") クリア
     p.input-wrap
       input.input(type="text" placeholder="" v-model="inputText")
       span.input-line
@@ -23,24 +19,31 @@
     .down ↓
 
     // 変換結果
-    .result-description
+    .parts-txBtn2col
       p 変換結果
-      button.result-copy(type="button" @click="copy") コピー
+      button.parts-txBtn2col-btn.copy(type="button" @click="copy") コピー
+        transition(name="copied" @after-enter="copiedAfter")
+          span.copy-deco(v-show="isCopied") 𓀬
     p#js_result.result {{ convertedText }}
 
     // 変換過程詳細
-    p 詳しく
+    button.detail(type="button" @click="isOpenDetail = !isOpenDetail" :class="{'is-open': isOpenDetail}")
+      |変換の詳細を見る
+    transition(name="detail")
+      dl.detail-list(v-show="isOpenDetail")
+        dt 元の文章
+        dd {{ inputText }}
+
+        dt 変換対象のアルファベット
+        dd {{ hebonText }}
 
     // 注意事項
     ul.notes
-      li.notes-item ※フォントの関係で、ヒエログリフ以外の文字を入力するとでっかく表示されると思います
+      li.notes-item ※ヒエログリフ以外の文字はでっっっかく表示されてしまうと思います
       li.notes-item ※もしヒエログリフが表示されない場合は、お使いの端末にフォントが無いことが原因かもしれません。お手数ですが、他のスマホやパソコンで試してみてください
 </template>
 
 <style lang="stylus" scoped>
-.tx1,.tx2
-  font-size 3.2rem
-
 // 入力エリア
 .input
   width 100%
@@ -93,17 +96,48 @@
   border-top 1px solid alpha(color_text, .3)
   border-bottom @border-top
 
-  &-description
-    display flex
-    align-items center
-    justify-content space-between
+// コピー
+.copy
+  position relative
+  // クリック時装飾
+  &-deco
+    position absolute
+    top 0
+    right 0
+    left 0
+    margin auto
+    width 1em
+    font-size 3rem
+    line-height 1
+    color color_main
+    pointer-events none
+    transform translateY(-30px)
 
-  // コピーボタン
-  &-copy
-    color color_base
-    font-size 1.4rem
-    padding 4px 8px
-    background-color color_main
+// コピーアニメ
+.copied
+  &-enter
+    transform translateY(0)
+    opacity 1
+  &-enter-active
+    transition all .1s linear
+  &-leave-to
+    opacity 0
+  &-leave-active
+    transition all 1.5s ease-in
+
+// 変換の詳細
+.detail
+  &::before
+    content '▶'
+    color color_main
+    display inline-block
+    vertical-align top
+    margin-right 3px
+    transition transform .2s
+  &.is-open::before
+    transform rotate(90deg)
+  &-list
+    display flex
 </style>
 
 <script>
@@ -112,25 +146,18 @@ import jaconv from 'jaconv'
 export default {
   data() {
     return {
-      inputText: 'abcd'
+      inputText: 'abcd',
+      hebonText: '',
+
+      isCopied: false,
+      isOpenDetail: false
     }
   },
   computed: {
     convertedText() {
       let text = this.inputText
 
-      // ワインを水に 的な
-      // カタカナは全角に、英数記号は半角に
-      text = jaconv.normalize(text)
-
-      // カタカナをひらがなに
-      text = jaconv.toHiragana(text)
-
-      // ひらがなをローマ字で半角英文字に
-      text = jaconv.toHebon(text)
-
-      // アルファベットを大文字に
-      text = text.toUpperCase()
+      text = this.organizeText(text)
 
       // 配列にして、ヒエログリフと照らし合わせながら変換
       const arr = text.split('')
@@ -149,10 +176,34 @@ export default {
     }
   },
   methods: {
+    // テキストキレイキレイ
+    organizeText(text) {
+      // カタカナは全角に、英数記号は半角に
+      text = jaconv.normalize(text)
+
+      // カタカナをひらがなに
+      text = jaconv.toHiragana(text)
+
+      // ひらがなをローマ字で半角英文字に
+      text = jaconv.toHebon(text)
+
+      // アルファベットを大文字に
+      text = text.toUpperCase()
+      this.hebonText = text
+
+      return text
+    },
+
     // 結果をクリップボードにコピー
     copy() {
       const text = this.convertedText
-      navigator.clipboard.writeText(text)
+      navigator.clipboard.writeText(text).then(() => {
+        this.isCopied = true
+      })
+    },
+    // コピーアニメ用
+    copiedAfter() {
+      this.isCopied = false
     }
   }
 }

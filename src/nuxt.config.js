@@ -30,14 +30,12 @@ export default {
   css: [
     '~/assets/css/reset.styl',
     '~/assets/css/base.styl',
-    '~/assets/css/parts.styl',
+    '~/assets/css/parts.styl'
   ],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/hieroglyphs',
-  ],
+  plugins: ['~/plugins/hieroglyphs'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -48,17 +46,13 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/style-resources',
-    'nuxt-webfontloader',
-  ],
+  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', 'nuxt-webfontloader'],
   // Vueから参照したい変数,関数など
   styleResources: {
     stylus: [
       '~/assets/css/_var.styl',
       '~/assets/css/_mixin.styl',
-      '~/assets/css/_colors.styl',
+      '~/assets/css/_colors.styl'
     ]
   },
   // GoogleFonts

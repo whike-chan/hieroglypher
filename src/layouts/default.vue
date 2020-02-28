@@ -2,6 +2,7 @@
   .l-wrapper
     header#header.header
       nuxt-link.header-link(to="/") 𓁝
+      p.header-text なんちゃってヒエログリファー
     nuxt#contents.contents
     footer#footer.footer
       nav
@@ -31,13 +32,18 @@
 
 // header のちのち移動
 .header
-  font-size 4rem
-  font-weight bold
   text-align center
   margin 0 20px
+  padding 15px 0
   border-bottom 1px solid alpha(color_text, .3)
   &-link
+    font-size 4rem
+    line-height 1
     text-decoration none
+  &-text
+    font-size 1rem
+    letter-spacing 2px
+    margin-top 3px
 
 .contents
   width 100%
