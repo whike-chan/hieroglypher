@@ -30,17 +30,20 @@
     button.detail(type="button" @click="isOpenDetail = !isOpenDetail" :class="{'is-open': isOpenDetail}")
       |変換の詳細を見る
     transition(name="detail")
-      dl.detail-list(v-show="isOpenDetail")
-        dt 元の文章
-        dd {{ inputText }}
+      div(v-show="isOpenDetail")
+        dl.detail-list
+          dt.detail-term 元の文字
+          dd.detail-data {{ inputText }}
 
-        dt 変換対象のアルファベット
-        dd {{ hebonText }}
+        dl.detail-list
+          dt.detail-term 変換対象のアルファベット
+          dd.detail-data {{ hebonText }}
 
     // 注意事項
     ul.notes
       li.notes-item ※ヒエログリフ以外の文字はでっっっかく表示されてしまうと思います
       li.notes-item ※もしヒエログリフが表示されない場合は、お使いの端末にフォントが無いことが原因かもしれません。お手数ですが、他のスマホやパソコンで試してみてください
+      li.notes-item ※ひらがな・カタカナを入力した場合、ヘボン式ローマ字変換によって思ったとおりに変換されない可能性があります。アルファベットで入力いただくと確実です
 </template>
 
 <style lang="stylus" scoped>
@@ -72,6 +75,7 @@
 // 注意書き
 .notes
   font-size 1.4rem
+  margin-top 16px
   &-item
     padding-left 1em
     text-indent -1em
@@ -81,7 +85,7 @@
   font-size 3rem
   font-weight 700
   text-align center
-  padding 16px 0
+  padding 25px 0
   color color_accent
 
 // 結果
@@ -108,6 +112,7 @@
     margin auto
     width 1em
     font-size 3rem
+    font-weight 400
     line-height 1
     color color_main
     pointer-events none
@@ -134,10 +139,13 @@
     vertical-align top
     margin-right 3px
     transition transform .2s
+    transform-origin center
   &.is-open::before
-    transform rotate(90deg)
+    transform rotate(90deg) translateX(-2px)
   &-list
     display flex
+  &-term::after
+    content '：'
 </style>
 
 <script>
