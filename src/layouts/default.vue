@@ -12,9 +12,9 @@
           li.footer-item
             nuxt-link.footer-link(to="/") ヒエログリファー
           li.footer-item
-            nuxt-link.footer-link(to="/table") 対応表
+            nuxt-link.footer-link(to="table") 対応表
           li.footer-item
-            nuxt-link.footer-link(to="/story") あらすじ
+            nuxt-link.footer-link(to="story") あらすじ
       p.footer-copy
         small © 2020 whike
 </template>
