@@ -1,7 +1,7 @@
 <template lang="pug">
   .l-wrapper
     header#header.header
-      nuxt-link.header-link(to="/hieroglypher/") 𓁝
+      nuxt-link.header-link(to="/") 𓁝
       p.header-text(v-if="!isTop") ヒエログリファー
 
     nuxt#contents.contents
@@ -10,11 +10,11 @@
       nav
         ul.footer-list
           li.footer-item
-            nuxt-link.footer-link(to="/hieroglypher/") ヒエログリファー
+            nuxt-link.footer-link(to="/") ヒエログリファー
           li.footer-item
-            nuxt-link.footer-link(to="/hieroglypher/table") 対応表
+            nuxt-link.footer-link(to="/table") 対応表
           li.footer-item
-            nuxt-link.footer-link(to="/hieroglypher/story") あらすじ
+            nuxt-link.footer-link(to="/story") あらすじ
       p.footer-copy
         small © 2020 whike
 </template>

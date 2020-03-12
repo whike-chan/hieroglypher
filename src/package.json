@@ -10,11 +10,14 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "fix": "eslint --fix"
+    "fix": "eslint --fix",
+    "build:gh": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "cross-env": "^7.0.2",
     "jaconv": "^1.0.4",
     "nuxt": "^2.0.0",
     "nuxt-webfontloader": "^1.1.0",
