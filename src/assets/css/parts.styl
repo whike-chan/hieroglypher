@@ -1,0 +1,58 @@
+//--------------------------------------------
+//
+//  parts
+//
+//---------------------------------------------
+.parts
+  //---------------------------------------------
+  //  インナーフレーム
+  //---------------------------------------------
+  &-inner
+    width 100%
+    max-width 750px
+    padding 0 1em
+    margin 0 auto
+
+  //---------------------------------------------
+  //  タイトル
+  //---------------------------------------------
+  // ページタイトル
+  &-pageTtl
+    font-size 2.4rem
+    font-weight 700
+    text-align left
+    line-height 1.5
+    position relative
+    display inline-block
+    vertical-align top
+    margin-bottom 1em
+    padding .1em .5em .15em
+    color color_base
+    background-color color_main
+    border-radius .8em
+    &::before
+      content ""
+      position absolute
+      top -2px
+      right -2px
+      width 2px
+      height calc(100% + 4px)
+      background-color color_main
+
+  //---------------------------------------------
+  //  テキスト
+  //---------------------------------------------
+  // テキスト・ボタン２カラム
+  &-txBtn2col
+    display flex
+    align-items center
+    justify-content space-between
+    // ボタン
+    &-btn
+      color color_base
+      font-size 1.6rem
+      font-weight 700
+      margin-left 10px
+      padding 4px 8px
+      flex-shrink 0
+      background-color color_main
