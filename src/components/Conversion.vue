@@ -1,14 +1,12 @@
-<doc>変換器</doc>
-
 <template lang="pug">
   div
-    h1.parts-pageTtl 変換器
+    h1.parts-pageTtl ヒエログリファー
 
     .parts-txBtn2col
-      p 変換したい文字を入力してみてください
+      p.tx-2col 変換したい文字を入力してみてください
       button.parts-txBtn2col-btn(type="button" @click="inputText = ''") クリア
     p.input-wrap
-      input.input(type="text" placeholder="" v-model="inputText")
+      input.input(type="text" placeholder="" ref="inputText" v-model="inputText")
       span.input-line
 
     // 注意事項
@@ -33,11 +31,11 @@
       div(v-show="isOpenDetail")
         dl.detail-list
           dt.detail-term 元の文字
-          dd.detail-data {{ inputText }}
+          dd {{ inputText }}
 
         dl.detail-list
           dt.detail-term 変換対象のアルファベット
-          dd.detail-data {{ hebonText }}
+          dd {{ hebonText }}
 
     // 注意事項
     ul.notes
@@ -45,6 +43,79 @@
       li.notes-item ※もしヒエログリフが表示されない場合は、お使いの端末にフォントが無いことが原因かもしれません。お手数ですが、他のスマホやパソコンで試してみてください
       li.notes-item ※ひらがな・カタカナを入力した場合、ヘボン式ローマ字変換によって思ったとおりに変換されない可能性があります。アルファベットで入力いただくと確実です
 </template>
+
+<script>
+import jaconv from 'jaconv'
+
+export default {
+  data() {
+    return {
+      inputText: 'こんにちは',
+      hebonText: '',
+
+      isCopied: false,
+      isOpenDetail: false
+    }
+  },
+  computed: {
+    convertedText() {
+      let text = this.inputText
+
+      text = this.organizeText(text)
+
+      // 配列にして、ヒエログリフと照らし合わせながら変換
+      const arr = text.split('')
+      const arrConverted = []
+      arr.forEach((e) => {
+        if (this.$hieroglyphs[e]) {
+          arrConverted.push(this.$hieroglyphs[e])
+        } else {
+          arrConverted.push(e)
+        }
+      })
+
+      // 結合・出力
+      text = arrConverted.join('')
+      return text
+    }
+  },
+  mounted() {
+    // 初期フォーカス
+    this.$refs.inputText.focus()
+  },
+  methods: {
+    // テキストキレイキレイ
+    organizeText(text) {
+      // カタカナは全角に、英数記号は半角に
+      text = jaconv.normalize(text)
+
+      // カタカナをひらがなに
+      text = jaconv.toHiragana(text)
+
+      // ひらがなをローマ字で半角英文字に
+      text = jaconv.toHebon(text)
+
+      // アルファベットを大文字に
+      text = text.toUpperCase()
+      this.hebonText = text
+
+      return text
+    },
+
+    // 結果をクリップボードにコピー
+    copy() {
+      const text = this.convertedText
+      navigator.clipboard.writeText(text).then(() => {
+        this.isCopied = true
+      })
+    },
+    // コピーアニメ用
+    copiedAfter() {
+      this.isCopied = false
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 // 入力エリア
@@ -138,7 +209,7 @@
     display inline-block
     vertical-align top
     margin-right 3px
-    transition transform .2s
+    transition transform .1s
     transform-origin center
   &.is-open::before
     transform rotate(90deg) translateX(-2px)
@@ -147,72 +218,3 @@
   &-term::after
     content '：'
 </style>
-
-<script>
-import jaconv from 'jaconv'
-
-export default {
-  data() {
-    return {
-      inputText: 'abcd',
-      hebonText: '',
-
-      isCopied: false,
-      isOpenDetail: false
-    }
-  },
-  computed: {
-    convertedText() {
-      let text = this.inputText
-
-      text = this.organizeText(text)
-
-      // 配列にして、ヒエログリフと照らし合わせながら変換
-      const arr = text.split('')
-      const arrConverted = []
-      arr.forEach((e) => {
-        if (this.$hieroglyphs[e]) {
-          arrConverted.push(this.$hieroglyphs[e])
-        } else {
-          arrConverted.push(e)
-        }
-      })
-
-      // 結合・出力
-      text = arrConverted.join('')
-      return text
-    }
-  },
-  methods: {
-    // テキストキレイキレイ
-    organizeText(text) {
-      // カタカナは全角に、英数記号は半角に
-      text = jaconv.normalize(text)
-
-      // カタカナをひらがなに
-      text = jaconv.toHiragana(text)
-
-      // ひらがなをローマ字で半角英文字に
-      text = jaconv.toHebon(text)
-
-      // アルファベットを大文字に
-      text = text.toUpperCase()
-      this.hebonText = text
-
-      return text
-    },
-
-    // 結果をクリップボードにコピー
-    copy() {
-      const text = this.convertedText
-      navigator.clipboard.writeText(text).then(() => {
-        this.isCopied = true
-      })
-    },
-    // コピーアニメ用
-    copiedAfter() {
-      this.isCopied = false
-    }
-  }
-}
-</script>

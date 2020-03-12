@@ -2,18 +2,32 @@
   .l-wrapper
     header#header.header
       nuxt-link.header-link(to="/") 𓁝
-      p.header-text なんちゃってヒエログリファー
+      p.header-text(v-if="!isTop") ヒエログリファー
+
     nuxt#contents.contents
+
     footer#footer.footer
       nav
         ul.footer-list
           li.footer-item
-            nuxt-link.footer-link(to="/") 変換器
+            nuxt-link.footer-link(to="/") ヒエログリファー
           li.footer-item
             nuxt-link.footer-link(to="/table") 対応表
+          li.footer-item
+            nuxt-link.footer-link(to="/story") あらすじ
       p.footer-copy
         small © 2020 whike
 </template>
+
+<script>
+export default {
+  computed: {
+    isTop() {
+      return this.$route.path === '/'
+    }
+  }
+}
+</script>
 
 <style lang="stylus" scoped>
 // ラッパー
