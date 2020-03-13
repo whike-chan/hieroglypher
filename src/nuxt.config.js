@@ -5,7 +5,10 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   }
 } : {}
 
-const BASE_URL = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
+const BASE_GH_URL = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
+
+const BASE_TITLE = 'ヒエログリフ変換「ヒエログリファー」'
+const BASE_DESCRIPTION = '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
 
 export default {
   mode: 'universal',
@@ -20,29 +23,29 @@ export default {
     htmlAttrs: {
       lang: 'ja'
     },
-    title: 'ヒエログリフ変換「ヒエログリファー」',
+    title: BASE_TITLE,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
+        content: BASE_DESCRIPTION
       },
       { property: 'og:url', content: 'https://whike-chan.github.io/hieroglypher/' },
-      { property: 'og:title', content: 'ヒエログリフ変換システム「ヒエログリファー」' },
+      { property: 'og:title', content: BASE_TITLE },
       { property: 'og:type', content: 'website' },
-      { property: 'og:description', content: '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。' },
-      { property: 'og:image', content: BASE_URL + 'img/ogimage.png' },
+      { property: 'og:description', content: BASE_DESCRIPTION },
+      { property: 'og:image', content: BASE_GH_URL + 'img/ogimage.png' },
       { property: 'twitter:card', content: 'summary' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: BASE_URL + 'favicon.ico' },
-      { rel: 'icon', type: 'image/png', size: '16x16', href: BASE_URL + 'img/icon-16x16.png' },
-      { rel: 'icon', type: 'image/png', size: '32x32', href: BASE_URL + 'img/icon-32x32.png' },
-      { rel: 'icon', type: 'image/png', size: '48x48', href: BASE_URL + 'img/icon-48x48.png' },
-      { rel: 'icon', type: 'image/png', size: '72x72', href: BASE_URL + 'img/icon-72x72.png' },
-      { rel: 'icon', type: 'image/png', size: '160x160', href: BASE_URL + 'img/icon-160x160.png' }
+      { rel: 'icon', type: 'image/x-icon', href: BASE_GH_URL + 'favicon.ico' },
+      { rel: 'icon', type: 'image/png', size: '16x16', href: BASE_GH_URL + 'img/icon-16x16.png' },
+      { rel: 'icon', type: 'image/png', size: '32x32', href: BASE_GH_URL + 'img/icon-32x32.png' },
+      { rel: 'icon', type: 'image/png', size: '48x48', href: BASE_GH_URL + 'img/icon-48x48.png' },
+      { rel: 'icon', type: 'image/png', size: '72x72', href: BASE_GH_URL + 'img/icon-72x72.png' },
+      { rel: 'icon', type: 'image/png', size: '160x160', href: BASE_GH_URL + 'img/icon-160x160.png' }
     ]
   },
   /*
