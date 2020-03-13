@@ -9,6 +9,7 @@ const BASE_GH_URL = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '
 
 const BASE_TITLE = 'ヒエログリフ変換「ヒエログリファー」'
 const BASE_DESCRIPTION = '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
+const BASE_URL = 'https://whike-chan.github.io/hieroglypher/'
 
 export default {
   mode: 'universal',
@@ -32,11 +33,11 @@ export default {
         name: 'description',
         content: BASE_DESCRIPTION
       },
-      { property: 'og:url', content: 'https://whike-chan.github.io/hieroglypher/' },
+      { property: 'og:url', content: BASE_URL },
       { property: 'og:title', content: BASE_TITLE },
       { property: 'og:type', content: 'website' },
       { property: 'og:description', content: BASE_DESCRIPTION },
-      { property: 'og:image', content: BASE_GH_URL + 'img/ogimage.png' },
+      { property: 'og:image', content: BASE_URL + 'img/ogimage.png' },
       { property: 'twitter:card', content: 'summary' }
     ],
     link: [
