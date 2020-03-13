@@ -15,26 +15,38 @@ export default {
    ** Headers of the page
    */
   head: {
-    // ja
     htmlAttrs: {
       lang: 'ja'
     },
-    title: process.env.npm_package_name || '',
+    title: 'ヒエログリフ変換「ヒエログリファー」',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
+      },
+      { property: 'og:url', content: 'https://whike-chan.github.io/hieroglypher/' },
+      { property: 'og:title', content: 'ヒエログリフ変換システム「ヒエログリファー」' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:description', content: '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。' },
+      { property: 'og:image', content: '/img/ogimage.png' },
+      { property: 'twitter:card', content: 'summary' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', size: '16x16', href: '/img/icon-16x16.png' },
+      { rel: 'icon', type: 'image/png', size: '32x32', href: '/img/icon-32x32.png' },
+      { rel: 'icon', type: 'image/png', size: '48x48', href: '/img/icon-48x48.png' },
+      { rel: 'icon', type: 'image/png', size: '72x72', href: '/img/icon-72x72.png' },
+      { rel:'apple-touch-icon-precomposed', href='/img/icon-160x160.png' }
+    ]
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#009dbf' },
   /*
    ** Global CSS
    */
