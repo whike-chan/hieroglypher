@@ -40,7 +40,7 @@ export default {
       { rel: 'icon', type: 'image/png', size: '32x32', href: '/img/icon-32x32.png' },
       { rel: 'icon', type: 'image/png', size: '48x48', href: '/img/icon-48x48.png' },
       { rel: 'icon', type: 'image/png', size: '72x72', href: '/img/icon-72x72.png' },
-      { rel:'apple-touch-icon-precomposed', href='/img/icon-160x160.png' }
+      { rel: 'icon', type: 'image/png', size: '160x160', href: '/img/icon-160x160.png' }
     ]
   },
   /*
