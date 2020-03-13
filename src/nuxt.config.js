@@ -5,6 +5,8 @@ const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   }
 } : {}
 
+const BASE_URL = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
+
 export default {
   mode: 'universal',
   generate: {
@@ -31,16 +33,16 @@ export default {
       { property: 'og:title', content: 'ヒエログリフ変換システム「ヒエログリファー」' },
       { property: 'og:type', content: 'website' },
       { property: 'og:description', content: '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。' },
-      { property: 'og:image', content: '/img/ogimage.png' },
+      { property: 'og:image', content: BASE_URL + 'img/ogimage.png' },
       { property: 'twitter:card', content: 'summary' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'icon', type: 'image/png', size: '16x16', href: '/img/icon-16x16.png' },
-      { rel: 'icon', type: 'image/png', size: '32x32', href: '/img/icon-32x32.png' },
-      { rel: 'icon', type: 'image/png', size: '48x48', href: '/img/icon-48x48.png' },
-      { rel: 'icon', type: 'image/png', size: '72x72', href: '/img/icon-72x72.png' },
-      { rel: 'icon', type: 'image/png', size: '160x160', href: '/img/icon-160x160.png' }
+      { rel: 'icon', type: 'image/x-icon', href: BASE_URL + 'favicon.ico' },
+      { rel: 'icon', type: 'image/png', size: '16x16', href: BASE_URL + 'img/icon-16x16.png' },
+      { rel: 'icon', type: 'image/png', size: '32x32', href: BASE_URL + 'img/icon-32x32.png' },
+      { rel: 'icon', type: 'image/png', size: '48x48', href: BASE_URL + 'img/icon-48x48.png' },
+      { rel: 'icon', type: 'image/png', size: '72x72', href: BASE_URL + 'img/icon-72x72.png' },
+      { rel: 'icon', type: 'image/png', size: '160x160', href: BASE_URL + 'img/icon-160x160.png' }
     ]
   },
   /*
