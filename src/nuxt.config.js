@@ -74,7 +74,12 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', 'nuxt-webfontloader'],
+  modules: [
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources',
+    'nuxt-webfontloader',
+    'nuxt-clipboard2'
+  ],
   // Vueから参照したい変数,関数など
   styleResources: {
     stylus: [
