@@ -50,7 +50,7 @@ import jaconv from 'jaconv'
 export default {
   data() {
     return {
-      inputText: 'こんにちは',
+      inputText: 'Hello world',
       hebonText: '',
 
       isCopied: false,
@@ -105,9 +105,8 @@ export default {
     // 結果をクリップボードにコピー
     copy() {
       const text = this.convertedText
-      navigator.clipboard.writeText(text).then(() => {
-        this.isCopied = true
-      })
+      this.$copyText(text)
+      this.isCopied = true
     },
     // コピーアニメ用
     copiedAfter() {
@@ -186,7 +185,6 @@ export default {
     font-weight 400
     line-height 1
     color color_main
-    pointer-events none
     transform translateY(-30px)
 
 // コピーアニメ
