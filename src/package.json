@@ -17,6 +17,7 @@
     "acorn": "7.1.1",
     "cross-env": "^7.0.2",
     "jaconv": "^1.0.4",
+    "minimist": "1.2.2",
     "nuxt": "^2.0.0",
     "nuxt-clipboard2": "^0.2.1",
     "nuxt-webfontloader": "^1.1.0",
