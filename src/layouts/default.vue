@@ -14,6 +14,8 @@
           li.footer-item
             nuxt-link.footer-link(to="/table") 対応表
           li.footer-item
+            nuxt-link.footer-link(to="/notes") 注意事項
+          li.footer-item
             nuxt-link.footer-link(to="/story") あらすじ
       p.footer-copy
         small © 2020 whike
@@ -44,7 +46,7 @@ export default {
 #footer
   grid-row 3
 
-// header のちのち移動
+// header
 .header
   text-align center
   margin 0 20px
@@ -63,26 +65,34 @@ export default {
   width 100%
   max-width 750px
   margin 0 auto
-  padding 40px 20px
+  padding 30px 20px
 
-// footer のちのち移動
+// footer
 .footer
   padding 14px 20px
 
   // ナビ
   &-list
     display flex
+    flex-wrap wrap
     justify-content center
     align-items center
-  &-item + .footer-item::before
-    content "｜"
-    padding 0 5px
+  &-item
+    margin-bottom 8px
+    &+ .footer-item::before
+      content "｜"
+      padding 0 5px
+
+  &-link
+    text-decoration none
+    padding-bottom 1px
+    border-bottom 1px solid alpha(color_text, .3)
 
   // コピーライト
   &-copy
     font-size 14px
     text-align center
-    margin-top 12px
-    padding-top @margin-top
+    margin-top 8px
+    padding-top 12px
     border-top 1px solid alpha(color_text, .3)
 </style>

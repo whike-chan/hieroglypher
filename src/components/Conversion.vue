@@ -3,22 +3,16 @@
     h1.parts-pageTtl ヒエログリファー
 
     .parts-txBtn2col
-      p.tx-2col 変換したい文字を入力してみてください
+      p.tx-2col 入力
       button.parts-txBtn2col-btn(type="button" @click="inputText = ''") クリア
     p.input-wrap
       input.input(type="text" placeholder="" ref="inputText" v-model="inputText")
       span.input-line
 
-    // 注意事項
-    ul.notes
-      li.notes-item ※ひらがな・カタカナ・アルファベットに対応しています
-      li.notes-item ※対応していない文字（漢字や空白など）は、そのまま出力されます
-
     .down ↓
 
-    // 変換結果
     .parts-txBtn2col
-      p 変換結果
+      p 結果
       button.parts-txBtn2col-btn.copy(type="button" @click="copy") コピー
         transition(name="copied" @after-enter="copiedAfter")
           span.copy-deco(v-show="isCopied") 𓀬
@@ -36,12 +30,6 @@
         dl.detail-list
           dt.detail-term 変換対象のアルファベット
           dd {{ hebonText }}
-
-    // 注意事項
-    ul.notes
-      li.notes-item ※ヒエログリフ以外の文字はでっっっかく表示されてしまうと思います
-      li.notes-item ※もしヒエログリフが表示されない場合は、お使いの端末にフォントが無いことが原因かもしれません。お手数ですが、他のスマホやパソコンで試してみてください
-      li.notes-item ※ひらがな・カタカナを入力した場合、ヘボン式ローマ字変換によって思ったとおりに変換されない可能性があります。アルファベットで入力いただくと確実です
 </template>
 
 <script>
@@ -127,7 +115,7 @@ export default {
   // ラッパー
   &-wrap
     position relative
-    margin 16px 0
+    margin-top 16px
   // 装飾線
   &-line
     position absolute
@@ -142,20 +130,11 @@ export default {
   &:focus ~ .input-line
     width 100%
 
-// 注意書き
-.notes
-  font-size 1.4rem
-  margin-top 16px
-  &-item
-    padding-left 1em
-    text-indent -1em
-
 // ↓
 .down
   font-size 3rem
-  font-weight 700
   text-align center
-  padding 25px 0
+  padding 15px 0
   color color_accent
 
 // 結果
