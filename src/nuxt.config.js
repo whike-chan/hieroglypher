@@ -70,7 +70,8 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/google-analytics'
   ],
   /*
    ** Nuxt.js modules
@@ -94,6 +95,10 @@ export default {
     google: {
       families: ['M+PLUS+1p:400,700']
     }
+  },
+  // GoogleAnalytics
+  googleAnalytics: {
+    id: 'G-7CSD3DHRZP'
   },
   /*
    ** Build configuration
