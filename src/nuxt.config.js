@@ -64,10 +64,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/hieroglyphs',
-    { src: '~plugins/ga.js', mode: 'client' }
-  ],
+  plugins: ['~/plugins/hieroglyphs'],
   /*
    ** Nuxt.js dev-modules
    */
