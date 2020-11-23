@@ -70,8 +70,7 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/eslint-module'
   ],
   /*
    ** Nuxt.js modules
@@ -80,7 +79,8 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-webfontloader',
-    'nuxt-clipboard2'
+    'nuxt-clipboard2',
+    '@nuxtjs/google-analytics'
   ],
   // Vueから参照したい変数,関数など
   styleResources: {
