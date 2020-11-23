@@ -24,7 +24,7 @@ export default ({ app }) => {
     window,
     document,
     'script',
-    'https://www.google-analytics.com/analytics.js?id=G-C65WFGPYL7',
+    'https://www.google-analytics.com/analytics.js',
     'ga'
   )
   /*
