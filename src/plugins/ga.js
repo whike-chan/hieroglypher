@@ -24,13 +24,13 @@ export default ({ app }) => {
     window,
     document,
     'script',
-    'https://www.google-analytics.com/analytics.js',
+    'https://www.google-analytics.com/analytics.js?id=G-C65WFGPYL7',
     'ga'
   )
   /*
    ** 現在のページをセット
    */
-  ga('create', 'UA-167622284-1', 'auto')
+  ga('create', 'G-C65WFGPYL7', 'auto')
   /*
    ** ルートが変更されるたびに毎回実行（初期化も実行される）
    */
