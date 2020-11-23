@@ -1,19 +1,14 @@
 // `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/hieroglypher/'
-        }
-      }
-    : {}
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/hieroglypher/'
+  }
+} : {}
 
-const BASE_GH_URL =
-  process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
+const BASE_GH_URL = process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
 
 const BASE_TITLE = 'ヒエログリフ変換「ヒエログリファー」'
-const BASE_DESCRIPTION =
-  '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
+const BASE_DESCRIPTION = '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
 const BASE_URL = 'https://whike-chan.github.io/hieroglypher/'
 
 export default {
@@ -47,36 +42,11 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: BASE_GH_URL + 'favicon.ico' },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        size: '16x16',
-        href: BASE_GH_URL + 'img/icon-16x16.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        size: '32x32',
-        href: BASE_GH_URL + 'img/icon-32x32.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        size: '48x48',
-        href: BASE_GH_URL + 'img/icon-48x48.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        size: '72x72',
-        href: BASE_GH_URL + 'img/icon-72x72.png'
-      },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        size: '160x160',
-        href: BASE_GH_URL + 'img/icon-160x160.png'
-      }
+      { rel: 'icon', type: 'image/png', size: '16x16', href: BASE_GH_URL + 'img/icon-16x16.png' },
+      { rel: 'icon', type: 'image/png', size: '32x32', href: BASE_GH_URL + 'img/icon-32x32.png' },
+      { rel: 'icon', type: 'image/png', size: '48x48', href: BASE_GH_URL + 'img/icon-48x48.png' },
+      { rel: 'icon', type: 'image/png', size: '72x72', href: BASE_GH_URL + 'img/icon-72x72.png' },
+      { rel: 'icon', type: 'image/png', size: '160x160', href: BASE_GH_URL + 'img/icon-160x160.png' }
     ]
   },
   /*
@@ -94,10 +64,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '~/plugins/hieroglyphs',
-    { src: '~plugins/ga.js', mode: 'client' }
-  ],
+  plugins: ['~/plugins/hieroglyphs'],
   /*
    ** Nuxt.js dev-modules
    */
