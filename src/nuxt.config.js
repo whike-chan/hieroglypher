@@ -1,20 +1,23 @@
 // `DEPLOY_ENV` が `GH_PAGES` の場合のみ `router.base = '/<repository-name>/'` を追加する
 const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/hieroglypher/'
-        }
-      }
-    : {}
+  // process.env.DEPLOY_ENV === 'GH_PAGES'
+  //   ? {
+  //       router: {
+  //         base: '/hieroglypher/'
+  //       }
+  //     }
+  //   : {}
+  {}
 
 const BASE_GH_URL =
-  process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
+  // process.env.DEPLOY_ENV === 'GH_PAGES' ? '/hieroglypher/' : '/'
+  '/'
 
 const BASE_TITLE = 'ヒエログリフ変換「ヒエログリファー」'
 const BASE_DESCRIPTION =
   '「ヒエログリファー」を使うと、ひらがな・カタカナ・アルファベットをリアルタイムでヒエログリフに変換することができます。'
-const BASE_URL = 'https://whike-chan.github.io/hieroglypher/'
+// const BASE_URL = 'https://whike-chan.github.io/hieroglypher/'
+const BASE_URL = 'https://hieroglypher.pekopeko-portal.com/'
 
 export default {
   generate: {
