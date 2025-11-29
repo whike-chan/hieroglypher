@@ -1,0 +1,36 @@
+/* ============================================
+ * Base Styles
+ * 基本設定
+ * ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-text-size-adjust: 100% !important;
+  font: normal 400 1.6rem/normal var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-base);
+}
+
+a {
+  color: var(--color-text);
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--color-text);
+}
+
+button {
+  cursor: pointer;
+}

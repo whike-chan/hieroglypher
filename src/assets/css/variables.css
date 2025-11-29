@@ -1,0 +1,22 @@
+/* ============================================
+ * CSS Variables
+ * カスタムプロパティ定義
+ * ============================================ */
+
+:root {
+  /* Colors - 色 */
+  --color-base: #f3f0df;
+  --color-main: #009dbf;
+  --color-accent: #eb0d54;
+  --color-text: #3f3905;
+  --color-another: #d6cb4e;
+
+  /* Font Family - フォント指定 */
+  --font-family: 'M PLUS 1p', sans-serif;
+
+  /* Breakpoints - ブレイクポイント */
+  /* Note: メディアクエリでは直接値を使用 */
+  /* PC: 750.1px */
+  /* SP: 750px */
+  /* TAB: 1080px */
+}

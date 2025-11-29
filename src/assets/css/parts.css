@@ -1,0 +1,55 @@
+/* ============================================
+ * Parts
+ * 共通パーツスタイル
+ * ============================================ */
+
+/* インナーフレーム */
+.parts-inner {
+  width: 100%;
+  max-width: 750px;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+/* ページタイトル */
+.parts-pageTtl {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 25px;
+  padding: 0.1em 0.5em 0.15em;
+  color: #fff;
+  background-color: var(--color-main);
+  border-radius: 0.8em;
+}
+
+.parts-pageTtl::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 2px;
+  height: calc(100% + 4px);
+  background-color: var(--color-main);
+}
+
+/* テキスト・ボタン２カラム */
+.parts-txBtn2col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.parts-txBtn2col-btn {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-left: 10px;
+  padding: 4px 8px;
+  flex-shrink: 0;
+  background-color: var(--color-main);
+}
