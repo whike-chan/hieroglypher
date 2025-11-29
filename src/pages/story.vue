@@ -31,10 +31,6 @@ div
   p めでたしめでたし
 </template>
 
-<script setup lang="ts">
-// スタティックページなので特別なロジックなし
-</script>
-
 <style scoped>
 p + p {
   margin-top: 16px;
