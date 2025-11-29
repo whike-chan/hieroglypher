@@ -18,7 +18,7 @@
     "cross-env": "^7.0.2",
     "jaconv": "^1.0.4",
     "minimist": "1.2.3",
-    "nuxt": "^2.17.3",
+    "nuxt": "^4.2.1",
     "nuxt-clipboard2": "^0.2.1",
     "nuxt-webfontloader": "^1.1.0",
     "pug": "^2.0.4",
@@ -27,12 +27,12 @@
     "stylus-loader": "^3.0.2"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/eslint-config": "^12.0.0",
+    "@nuxtjs/eslint-module": "^1.1.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
+    "eslint": "^9.39.1",
     "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-nuxt": ">=4.0.0",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1"
   }
