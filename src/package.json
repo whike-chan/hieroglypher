@@ -7,17 +7,23 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "playwright test"
+  },
+  "engines": {
+    "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
   },
   "dependencies": {
-    "@vueuse/nuxt": "^14.1.0",
+    "@vueuse/core": "^14.4.0",
+    "@vueuse/nuxt": "^14.4.0",
     "jaconv": "^1.1.2",
-    "nuxt": "^4.2.1",
-    "pug": "^3.0.3",
-    "vue": "^3.5.25",
-    "vue-router": "^4.6.3"
+    "nuxt": "^4.5.2",
+    "pug": "^3.0.4",
+    "vue": "^3.5.42",
+    "vue-router": "^5.3.1"
   },
   "devDependencies": {
-    "@nuxtjs/google-fonts": "^3.2.0"
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@playwright/test": "^1.63.0"
   }
 }

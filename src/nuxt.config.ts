@@ -10,10 +10,10 @@ export default defineNuxtConfig({
 
   // Global CSS
   css: [
-    './assets/css/variables.css',
-    './assets/css/reset.css',
-    './assets/css/base.css',
-    './assets/css/parts.css'
+    '~/assets/css/variables.css',
+    '~/assets/css/reset.css',
+    '~/assets/css/base.css',
+    '~/assets/css/parts.css'
   ],
 
   // Modules
@@ -59,11 +59,12 @@ export default defineNuxtConfig({
     port: 3200
   },
 
-  // Generate output directory
-  nitro: {
-    output: {
-      dir: '../docs',
-      publicDir: '../docs'
+  // Keep development output separate from the GitHub Pages site.
+  $production: {
+    nitro: {
+      output: {
+        publicDir: '../docs'
+      }
     }
   }
 })

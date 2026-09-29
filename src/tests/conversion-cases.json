@@ -1,0 +1,47 @@
+[
+  {
+    "input": "Hello world",
+    "result": "𓎛𓇋𓃭𓃭𓍯 𓅱𓍯𓂋𓃭𓂧",
+    "hebon": "HELLO WORLD"
+  },
+  {
+    "input": "abcdefghijklmnopqrstuvwxyz",
+    "result": "𓄿𓃀𓎡𓂧𓇋𓆑𓎼𓎛𓇋𓆓𓎡𓃭𓅓𓈖𓍯𓏤𓏘𓂋𓋴𓏏𓅱𓆑𓅱𓎡𓋴𓇋𓊃",
+    "hebon": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  },
+  {
+    "input": "こんにちは",
+    "result": "𓎡𓍯𓈖𓈖𓇋𓎡𓎛𓇋𓎛𓄿",
+    "hebon": "KONNICHIHA"
+  },
+  {
+    "input": "カタカナ",
+    "result": "𓎡𓄿𓏏𓄿𓎡𓄿𓈖𓄿",
+    "hebon": "KATAKANA"
+  },
+  {
+    "input": "ｶﾀｶﾅ",
+    "result": "𓎡𓄿𓏏𓄿𓎡𓄿𓈖𓄿",
+    "hebon": "KATAKANA"
+  },
+  {
+    "input": "がっこう しんぶん",
+    "result": "𓎼𓄿𓎡𓎡𓍯 𓋴𓎛𓇋𓅓𓃀𓅱𓈖",
+    "hebon": "GAKKO SHIMBUN"
+  },
+  {
+    "input": "ＡｂＣ１２３！？",
+    "result": "𓄿𓃀𓎡123!?",
+    "hebon": "ABC123!?"
+  },
+  {
+    "input": "漢字 😀 123",
+    "result": "漢字 😀 123",
+    "hebon": "漢字 😀 123"
+  },
+  {
+    "input": "",
+    "result": "",
+    "hebon": ""
+  }
+]
